@@ -66,7 +66,7 @@ def view_tours(pos_cities, tours, names, info):
         plot_tour(ax, pos_cities, tours[i])
 
     plt.savefig(f'{fig_save_dir}/{info[1]}.jpg')
-    plt.pause(0.05)
+    plt.pause(0.2)
 
 
 def view_pheromones_and_tours(pos_cities, tau, tours, names, info):
@@ -113,7 +113,7 @@ def plot_pheromone_map(fig, pos_cities, tau):
                 [pos_cities[c1][0], pos_cities[c2][0]],
                 [pos_cities[c1][1], pos_cities[c2][1]],
                 color='pink', alpha = 0.5,
-                linewidth=math.log(tau[c1][c2], 7))     # 　フェロモンマップが見づらい場合は底を調整
+                linewidth=max(0, math.log(tau[c1][c2], 7)))     # 　フェロモンマップが見づらい場合は底を調整
 
 
 def sort(tours, len_tours):
